@@ -1,5 +1,44 @@
-.venv/
+
+---
+
+**.gitignore**
+```gitignore
+# Python
 __pycache__/
-*.pyc
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.egg-info/
+.eggs/
+
+# Virtual env
+.venv/
+env/
+venv/
+
+# Testing / tooling caches
+.pytest_cache/
+.coverage
+htmlcov/
+.mypy_cache/
+.ruff_cache/
+
+# Env / secrets / local data
 .env
+.env.*
+*.sqlite3
+*.db
 .data/
+.DS_Store
+
+# Editors / OS
+.vscode/
+.idea/
+*.code-workspace
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
