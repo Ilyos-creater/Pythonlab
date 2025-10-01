@@ -1,4 +1,5 @@
 === README.md ===
+
 # Python • L2C Workspace
 
 This repo is my **hands-on Python workspace** for the *Learn to Cloud (L2C)* path (Phase 2: Programming).
@@ -88,12 +89,7 @@ uvicorn src.api:app --reload
 ---
 
 ## Roadmap
-- [ ] Week 1–2: Python fundamentals + small CLI scripts (logs, JSON, CSV).
-- [ ] Week 3: SQLite quick-store + search; logging & `.env`.
-- [ ] Week 4: Spin up **FastAPI** with tests (CRUD + health).
-- [ ] Week 5: Start **Capstone** (journal/notes API): refactor, type hints, tests.
-- [ ] Week 6: Add features, **CI (GitHub Actions)**, container image, release notes.
-- [ ] Phase 3 (later, L2C): **Deploy** (container/VM, networking, secrets, monitoring).
+- [ ] Check out L2C for more information <a href="https://learntocloud.guide/phase2/">L2C</a> 
 
 ---
 
