@@ -1,109 +1,71 @@
-=== README.md ===
+# Python Craft Lab
 
-# Python • L2C Workspace
+Hands-on Python projects with test-first learning and clean tooling.  
+**Rule:** AI gave me tasks to solve; I must implement them **myself**. I may use AI **only** for feedback and to understand concepts — **no solutions**.
 
-This repo is my **hands-on Python workspace** for the *Learn to Cloud (L2C)* path (Phase 2: Programming).
-Goal: get practical with Python for **automation, APIs, storage/DB, testing**, then ship a small **capstone API**
-I can later deploy in the cloud.
+## Goals
+- Think like a Pythonista: readable, small, composable code  
+- Build real tools (CLIs, APIs, parsers) and ship them  
+- Quality by default: pytest, ruff/black, mypy
 
-> Owner: **Ilyas El-Hallaoui** (GitHub: `Ilyos-creater`)
-
----
-
-## Why this repo?
-- Keep all **notes, labs, and mini-projects** in one place.
-- Build a repeatable **tooling baseline** (venv, lint, tests).
-- Prepare for the L2C **capstone** (journal/notes API) and a later **cloud deploy**.
-
----
-
-## What I’m doing here
-1. **Python basics** – syntax, types, functions, modules, error handling.
-2. **Automation & APIs** – file I/O, JSON/CSV, HTTP clients, small scripts.
-3. **Storage** – quick persistence with SQLite.
-4. **Web/API** – FastAPI + tests.
-5. **Capstone** – refactor/extend a small Journal/Notes API, add tests & CI, containerize.
-
----
-
-## Stack & Conventions
-- **Python** 3.12 (venv)
-- **Tooling**: `black` (format), `ruff` (lint), `pytest` (tests)
-- **HTTP**: `requests` / `httpx`
-- **API**: `fastapi` + `uvicorn`
-- **DB (simple)**: `sqlmodel` / SQLite
-- **Env/Config**: `python-dotenv`
-
-**Layout**
+## Layout
     .
-    ├─ src/            # code
-    │  ├─ main.py
-    │  └─ api.py       # added when FastAPI starts
-    ├─ tests/          # pytest tests
-    ├─ .venv/          # virtual env (ignored)
-    ├─ .gitignore
-    ├─ pyproject.toml  # black/ruff config
-    └─ README.md
+    ├─ src/            # shared libs (optional)
+    ├─ projects/       # 01-*, 02-*, ... each with README + tests
+    ├─ tests/          # cross-project tests (if any)
+    └─ pyproject.toml  # tooling config
 
----
+## Tooling
+    python -m venv .venv && source .venv/bin/activate
+    pip install -U pip pytest black ruff mypy httpx typer
+    pytest -q
+    black .
+    ruff check .
+    mypy src projects --strict
 
-## Getting started (WSL/Ubuntu)
+## Projects (growing)
+- **01 LogTools** — streaming `head/grep/tail`, `--count`, generators  
+- **02 HTTP Client** — httpx with timeouts/retries/pagination  
+- **03 SQLite Notes** — tiny data layer + CSV/JSON export  
+- **04 Async Fetch** — when/why asyncio helps; concurrency limits  
+- **05 CLI Automate** — safe file ops, env vars, subprocess; dry-run
 
-~~~bash
-# clone (SSH)
-git clone git@github.com:Ilyos-creater/l2c-python.git
-cd l2c-python
+## Progress Journal
+    2025-10-15: Added tail spec + edge-case tests; stabilized newline behavior.
 
-# venv
-python -m venv .venv
-source .venv/bin/activate
-python -m pip install --upgrade pip
+## Reproduce (Prompt)
+Copy this into a new chat to get the same mentorship:
 
-# base tooling & libs
-pip install black ruff pytest requests python-dotenv fastapi "uvicorn[standard]" httpx sqlmodel
-~~~
+    Python Craft Mentor
 
-**Quality checks**
-~~~bash
-pytest -q
-ruff check .
-black --check .
-~~~
+    Act as my Python Craft Mentor. Do NOT give me solutions. Your job is to help me think like a Pythonista and learn by doing: readable code, small composable modules, and pragmatic problem-solving.
 
----
+    Rules:
+    - No solutions. Provide specs, failing-test ideas, hints, and feedback only.
+    - Prefer TDD: write failing test → make it pass → refactor.
+    - Keep examples runnable and copy-paste ready, but omit final implementations.
+    - Encourage idioms (comprehensions, context managers, generators) and safe I/O.
 
-## Tiny API (when present)
+    Focus areas (spiral):
+    - Core language (data types, control flow, functions, classes/dataclasses)
+    - Errors & debugging (tracebacks, exceptions, logging, pdb)
+    - Testing & quality (pytest, fixtures, coverage, ruff/black, mypy)
+    - Files & OS (pathlib, csv/json, subprocess, shutil)
+    - Networking & APIs (httpx/requests, timeouts, retries, pagination)
+    - Async & concurrency (asyncio, when & why)
+    - Packaging & CLI (pyproject.toml, entry points, argparse/Typer)
+    - Data & DB (sqlite3 basics)
 
-~~~bash
-uvicorn src.api:app --reload
-# http://127.0.0.1:8000/health  -> {"status":"ok"}
-~~~
+    Interaction protocol:
+    1) Ask my current level and goal (e.g., DevOps automation).
+    2) Pick a tiny real-world task and define clear acceptance criteria.
+    3) Ask what I’d try; give hints and test ideas.
+    4) Review my attempts; suggest refactors and quality checks.
+    5) End with a checkpoint, one stretch task, and short reading links.
 
----
+    Safety & quality defaults:
+    - Use venv, ruff + black, mypy (strict where helpful), pytest.
+    - Prefer pathlib and dry-run for file ops.
 
-## Dev tips
-- Work inside WSL **Linux path** (e.g. `~/code/...`) to avoid slow I/O.
-- Use **SSH keys** for GitHub (ed25519, loaded via ssh-agent).
-- Commit small, push before switching machines: `git push` here → `git pull` there.
+MIT License
 
----
-
-## Roadmap
-- [ ] Check out L2C for more information <a href="https://learntocloud.guide/phase2/">L2C</a> 
-
----
-
-## L2C reference
-This repo follows the *Learn to Cloud (L2C) – Programming (Python)* focus:
-scripting, APIs, storage, testing, and a small API capstone to deploy in the cloud.
-I’m starting with a free playlist/course; if I hit gaps, I’ll add a lightweight book/reference.
-
----
-
-## License
-Personal learning repo. Feel free to peek and adapt snippets; no warranty.
-
----
-
-### Contact
-- GitHub: `Ilyos-creater`
