@@ -6,6 +6,9 @@ _Repository path: `pythonlab/10-week-challenge/README.md`_
 - We provide **what** to build and **how we’ll check it works**.  
 - **No AI-written solutions.** AI may be used only for feedback, edge cases, and concept explanations.
 
+- My Start-Date: 20.10.2025
+- My End-Date 31.12.2025
+
 ---
 
 ## Challenge 1 — Text Utilities (Foundations)
